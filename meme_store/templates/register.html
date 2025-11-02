@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register 😎{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 400px;">
+    <div class="card p-4 shadow-lg" style="border-radius: 20px; background-color: #fff6d9;">
+        <h2 class="text-center" style="font-family: 'Comic Sans MS'; color: #ff4081;">😎 Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-warning w-100 fw-bold" style="border-radius: 50px;">🤣 Register</button>
+        </form>
+        <p class="text-center mt-2">Already have an account? <a href="{% url 'login' %}">😂 Login</a></p>
+    </div>
+</div>
+{% endblock %}

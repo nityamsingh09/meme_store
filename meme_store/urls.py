@@ -1,0 +1,23 @@
+from django.contrib import admin
+from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from  .import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.home, name="home"),
+    path('gippy/', views.gippy, name="gippy"),
+    path('treand/meme/', views.trending_meme, name="trend"),
+    path('like/<int:meme_id>/', views.like_meme, name="like_meme"), 
+    path("search/", views.search, name="search"),  
+    path("about/", views.about, name="about"),  
+    path('like/giphy/<int:giphy_id>/', views.like_giphy, name='like_giphy'),
+    path("login/", views.login_view, name="login"),
+    path("register/", views.register_view, name="register"),
+    path("logout/", views.logout_view, name="logout"),
+
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
